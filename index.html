@@ -3,89 +3,105 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Portfolio - Sodikul Padli</title>
+    <title>Sodikul Padli - Fullstack Web Developer</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    
+
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+    <!-- Custom CSS -->
     <style>
       body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        scroll-behavior: smooth;
       }
 
       .navbar {
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #0d6efd !important;
       }
 
       .jumbotron {
-        background: linear-gradient(to right, #0d6efd, #0a58ca);
+        background: url('img/hero-bg.jpg') center/cover no-repeat;
         color: white;
-        padding-top: 6rem;
-        padding-bottom: 5rem;
+        padding: 8rem 1rem 6rem;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        position: relative;
       }
 
-      .jumbotron img {
-        border: 4px solid white;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      .jumbotron::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
       }
 
-      section {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+      .jumbotron .container {
+        position: relative;
+        z-index: 2;
       }
 
-      .about {
-        background-color: #e2edff;
+      .section-title {
+        font-weight: 700;
+        color: #0d6efd;
       }
 
-      .project .card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      .card {
         border: none;
         border-radius: 15px;
-        overflow: hidden;
+        transition: 0.3s;
       }
 
-      .project .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
 
-      .project .card img {
-        height: 230px;
+      .project img {
+        height: 220px;
         object-fit: cover;
-      }
-
-      .form-control:focus {
-        border-color: #0d6efd;
-        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
       }
 
       footer {
         background-color: #0d6efd;
+        color: white;
+        padding: 2rem 0;
       }
 
-      .btn-primary {
-        background-color: #0d6efd;
-        border: none;
+      .btn-outline-light:hover {
+        background-color: #ffffff;
+        color: #0d6efd;
       }
 
-      .btn-primary:hover {
-        background-color: #0b5ed7;
+      .form-control, .btn {
+        border-radius: 10px;
       }
     </style>
   </head>
-  <body id="home">
+  <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="#">Sodikul Padli</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -93,79 +109,78 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center">
-      <img src="img/foto.jpg" alt="Padli" width="180" class="rounded-circle img-thumbnail mb-3" />
-      <h1 class="display-4 fw-bold">Sodikul Padli</h1>
-      <p class="lead text-light">Web Programmer | Wiraswasta</p>
-      <a href="#contact" class="btn btn-light mt-3">Hire Me</a>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ffffff" fill-opacity="1" d="M0,288L40,250.7C80,213,160,139,240,138.7C320,139,400,213,480,213.3C560,213,640,139,720,122.7C800,107,880,149,960,186.7C1040,224,1120,256,1200,229.3C1280,203,1360,117,1400,74.7L1440,32L1440,320L0,320Z" />
-      </svg>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about">
+    <!-- Hero Section -->
+    <section id="home" class="jumbotron text-center text-white">
       <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2 class="fw-bold">About Me</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center fs-5 text-center">
-          <div class="col-md-4" data-aos="fade-up">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem dicta odit, voluptatum deserunt pariatur.</p>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique sed laboriosam temporibus doloribus.</p>
-          </div>
-        </div>
+        <img src="img/foto.jpg" alt="Sodikul Padli" class="rounded-circle shadow mb-3" width="150" />
+        <h1 class="display-5 fw-bold">Hi, I'm Sodikul Padli</h1>
+        <p class="lead">Fullstack Web Developer & Digital Entrepreneur</p>
+        <a href="#contact" class="btn btn-outline-light mt-3">Let's Collaborate</a>
       </div>
     </section>
 
-    <!-- Project -->
-    <section id="project" class="project">
+    <!-- About Section -->
+    <section id="about" class="py-5">
       <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2 class="fw-bold">My Projects</h2>
-          </div>
+        <div class="text-center mb-4">
+          <h2 class="section-title">About Me</h2>
         </div>
         <div class="row justify-content-center">
-          <!-- Repeatable Card -->
-          <div class="col-md-4 mb-3" data-aos="zoom-in">
+          <div class="col-md-6" data-aos="fade-right">
+            <p>Hello! I am a passionate web developer with 5+ years of experience. I specialize in building modern, fast, and responsive websites using technologies like HTML, CSS, JavaScript, PHP, and Laravel. I also enjoy designing in Figma and working with APIs and databases.</p>
+          </div>
+          <div class="col-md-6" data-aos="fade-left">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">🌍 Based in Indonesia</li>
+              <li class="list-group-item">💻 Technologies: HTML, CSS, JS, Bootstrap, Laravel</li>
+              <li class="list-group-item">📈 Focus: UI/UX, speed, and SEO optimization</li>
+              <li class="list-group-item">🤝 Available for freelance projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">My Projects</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="zoom-in">
             <div class="card">
-              <img src="img/project/loki.png" class="card-img-top" alt="Project 1" />
+              <img src="img/project/loki.png" alt="Project 1" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Loki Design</h5>
-                <p class="card-text">UI design using Figma & responsive layout for dashboard app.</p>
+                <h5 class="card-title">Loki Dashboard</h5>
+                <p class="card-text">Responsive admin dashboard built with Bootstrap 5 and Chart.js</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="card">
-              <img src="img/project/winter.png" class="card-img-top" alt="Project 2" />
+              <img src="img/project/winter.png" alt="Project 2" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Winter Website</h5>
-                <p class="card-text">Landing page template built with HTML, CSS, and Bootstrap.</p>
+                <h5 class="card-title">Winter Landing Page</h5>
+                <p class="card-text">Modern multi-section landing page with parallax effect</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
             <div class="card">
-              <img src="img/project/black.png" class="card-img-top" alt="Project 3" />
+              <img src="img/project/black.png" alt="Project 3" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Black App</h5>
-                <p class="card-text">Mobile app interface prototype with dark mode.</p>
+                <h5 class="card-title">Black UI Kit</h5>
+                <p class="card-text">UI design kit for dark-themed web apps and mobile layouts</p>
               </div>
             </div>
           </div>
@@ -173,30 +188,28 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
       <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2 class="fw-bold">Contact Me</h2>
-          </div>
+        <div class="text-center mb-4">
+          <h2 class="section-title">Contact Me</h2>
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6" data-aos="fade-up">
             <form>
               <div class="mb-3">
-                <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" />
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" />
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
               </div>
               <div class="mb-3">
-                <label for="pesan" class="form-label">Pesan</label>
-                <textarea class="form-control" id="pesan" rows="3"></textarea>
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary w-100">Submit</button>
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
             </form>
           </div>
         </div>
@@ -204,12 +217,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-white text-center p-4">
-      <p>Created with <i class="bi bi-heart-fill text-danger"></i> by <strong>Sodikul Padli</strong></p>
+    <footer class="text-center">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 Sodikul Padli. All rights reserved.</p>
+      </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>
   </body>
